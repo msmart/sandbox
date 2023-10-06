@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: energy-yields
+  name: energy-yields
+spec:
+ replicas: 1
+  selector:
+    matchLabels:
+      app: energy-yields
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: energy-yields
+    spec:
+      imagePullSecrets:
+      - name: ghcr-login-secret
+      containers:
+      - image: ghcr.io/msmart/sandbox:e8fe4b7ab4dc4365ef697bdf7316a78452cb8bed
+        name: app 
+        resources: {}
